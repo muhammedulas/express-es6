@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js';
 export class Encryption {
-    #publicKey = "FSM.Datamer.PublicKey.46281973";
+    #publicKey = "FSM.Datamer.PublicKey.Server.46281973";
     #secretKey = "Qx]ky2~`@;-:A/qa";
     constructor() { }
 

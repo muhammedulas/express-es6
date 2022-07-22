@@ -35,7 +35,7 @@ var Encryption = /*#__PURE__*/function () {
 
     _classPrivateFieldInitSpec(this, _publicKey, {
       writable: true,
-      value: "FSM.Datamer.PublicKey.46281973"
+      value: "FSM.Datamer.PublicKey.Server.46281973"
     });
 
     _classPrivateFieldInitSpec(this, _secretKey, {
