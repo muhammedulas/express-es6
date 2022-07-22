@@ -29,7 +29,7 @@
     "@babel/core": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
     "cookie-parser": "~1.4.4",
-    "cryptojs": "^2.5.3",
+    "crypto-js": "^4.1.1",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",
     "express": "~4.16.1",

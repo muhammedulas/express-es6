@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
+import * as dotenv from 'dotenv';
 
 var app = express();
 
