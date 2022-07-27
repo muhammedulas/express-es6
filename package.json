@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./server/bin/www",
     "server": "node ./dist-server/bin/www",
-    "transpile": "babel ./server --out-dir dist-server",
+    "transpile": "babel ./models ./server --out-dir dist-server",
     "clean": "rimraf dist-server",
     "build": "npm-run-all clean transpile",
     "dev": "NODE_ENV=development & npm-run-all build server",
@@ -40,7 +40,8 @@
     "@babel/preset-env": "^7.18.9",
     "debug": "~2.6.9",
     "nodemon": "^2.0.19",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "sequelize-cli": "^6.4.1"
   },
   "babel": {
     "presets": [

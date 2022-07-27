@@ -21,3 +21,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im11a
 {
     "refreshToken":"eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im11aGFtbWVkIiwicGFzc3dvcmQiOiJtdTEyMzQ1NiIsImlhdCI6MTY1ODc4NDUzOCwiZXhwIjoxNjU4ODI3NzM4fQ.RXwHfeXIo7UrMOkDCg8TxGVSvUEbglfzRUu5lKxsGTFKWD5tUHZ9iT09Bz14MEMb"
 }
+
+
+
+
+###
+GET http://localhost:3000/users/sync

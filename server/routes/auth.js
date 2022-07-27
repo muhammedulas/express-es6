@@ -1,7 +1,10 @@
 var express = require('express');
-import * as JWT from 'jsonwebtoken'
+import * as JWT from 'jsonwebtoken';
+import { Database } from '../shared_modules/db';
+import { User } from '../../models/User';
+const { LoginCredential } = require('../../viewModels/LoginCredential');
 
-const { LoginCredential } = require('../models/LoginCredential');
+var db = new Database();
 var router = express.Router();
 
 var refreshTokens = [];
@@ -42,7 +45,7 @@ router.post('/login', (req, res, next) => {
 });
 
 
-//Verifies the Given Token
+//Token Verification Endpoint
 router.post('/verify', (req, res, next) => {
 
     //Checks if a token provided in the authorization header. Otherwise returns error.
@@ -64,7 +67,7 @@ router.post('/verify', (req, res, next) => {
 })
 
 
-//Refreshes the Expired Token
+//Token Refresh Endpoint
 router.post('/refresh', (req, res, next) => {
     if (!req.body.refreshToken) {
         res.status(400).json({
@@ -95,6 +98,16 @@ router.post('/refresh', (req, res, next) => {
     }
 })
 
+
+router.get('/test', (req, res) => {
+    try {
+        User.findAll().then((rows) => {
+            res.json(rows)
+        });
+    } catch (err) {
+        res.json(err);
+    }
+})
 
 
 module.exports = router;
