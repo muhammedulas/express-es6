@@ -3,7 +3,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "username":"muhammed",
+    "username":"MULASS",
     "password":"mu123456"
 }
 
@@ -11,7 +11,7 @@ Accept: application/json
 
 POST http://localhost:3000/auth/verify
 Content-Type: text/plain
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im11aGFtbWVkIiwicGFzc3dvcmQiOiJtdTEyMzQ1NiIsImlhdCI6MTY1ODc4NDUzOCwiZXhwIjoxNjU4Nzg1NDM4fQ.KqJqfEv5QpQ9_u5zlB-UCTSHnPhaudNxy8dzfeNEkds
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiIiwidXNlcklkIjoyLCJ1c2VyTnIiOjB9LCJ3b3Jrc3BhY2UiOjAsImlhdCI6MTY1ODkzMjg5OCwiZXhwIjoxNjU4OTMzNzk4fQ.yce_OCGpc1hqUKt6BCxI6mMuHdM0Sukkd_LPYKPVv9Y
 
 ###
 POST http://localhost:3000/auth/refresh
@@ -23,7 +23,26 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im11a
 }
 
 
+###
+POST http://localhost:3000/auth/encrypt
+Content-Type: application/json
 
+{
+    "text":"1234"
+}
 
 ###
-GET http://localhost:3000/users/sync
+POST http://localhost:3000/auth/decrypt
+Content-Type: application/json
+
+{
+    "text":"U2FsdGVkX19bivcU/P8VMgKEF/1n9s1A8zJILYVTyy0="
+}
+
+###
+POST http://localhost:3000/auth/hash
+Content-Type: application/json
+
+{
+    "text":"1234"
+}

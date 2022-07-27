@@ -19,15 +19,7 @@ function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedec
 
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-
-function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-
 var _publicKey = /*#__PURE__*/new WeakMap();
-
-var _secretKey = /*#__PURE__*/new WeakMap();
 
 var Encryption = /*#__PURE__*/function () {
   function Encryption() {
@@ -37,22 +29,22 @@ var Encryption = /*#__PURE__*/function () {
       writable: true,
       value: "FSM.Datamer.PublicKey.Server.46281973"
     });
-
-    _classPrivateFieldInitSpec(this, _secretKey, {
-      writable: true,
-      value: "Qx]ky2~`@;-:A/qa"
-    });
   }
 
   _createClass(Encryption, [{
     key: "encrypt",
     value: function encrypt(value) {
-      return _cryptoJs["default"].AES.encrypt(value, _classPrivateFieldGet(this, _secretKey).trim()).toString();
+      return _cryptoJs["default"].AES.encrypt(value, process.env.GENERAL_ENCRYPTION_SECRET).toString();
     }
   }, {
     key: "decrypt",
     value: function decrypt(textToDecrypt) {
-      return _cryptoJs["default"].AES.decrypt(textToDecrypt, _classPrivateFieldGet(this, _secretKey).trim()).toString(_cryptoJs["default"].enc.Utf8);
+      return _cryptoJs["default"].AES.decrypt(textToDecrypt, process.env.GENERAL_ENCRYPTION_SECRET).toString(_cryptoJs["default"].enc.Utf8);
+    }
+  }, {
+    key: "hash",
+    value: function hash(textToHash) {
+      return _cryptoJs["default"].SHA3(textToHash).toString(_cryptoJs["default"].enc.Base64);
     }
   }]);
 

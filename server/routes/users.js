@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 import { Encryption } from '../shared_modules/encryption';
 import { Database } from '../shared_modules/db';
-import { User } from '../../models/User';
+import { User } from '../models/User';
 
 var ec = new Encryption();
 var db = new Database();

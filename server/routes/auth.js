@@ -1,10 +1,12 @@
 var express = require('express');
 import * as JWT from 'jsonwebtoken';
 import { Database } from '../shared_modules/db';
-import { User } from '../../models/User';
-const { LoginCredential } = require('../../viewModels/LoginCredential');
+import { User } from '../models/User';
+import { Encryption } from '../shared_modules/encryption';
+import { LoginCredential } from '../viewModels/LoginCredential';
 
 var db = new Database();
+var ec = new Encryption();
 var router = express.Router();
 
 var refreshTokens = [];
@@ -18,7 +20,7 @@ function ValidateForm(data) {
 
 
 //Login Endpoint
-router.post('/login', (req, res, next) => {
+router.post('/login', async (req, res, next) => {
     let credentials = new LoginCredential();
     credentials = req.body;
 
@@ -27,10 +29,22 @@ router.post('/login', (req, res, next) => {
         res.sendStatus(403)
     }
 
+    let user = await User.findOne({ where: { username: credentials.username } })
+
+    if (user === null || undefined) {
+        res.status(400).json({
+            name: "InvalidUser",
+            message: "Provided username was not found."
+        })
+    }
     //Create Payload Information
     let payload = {
-        username: credentials.username,
-        password: credentials.password
+        user: {
+            username: user.username,
+            userId: user.id,
+            userNr: user.nr,
+        },
+        workspace: user.defaultWorkspaceNr
     }
 
     //Create and Sign Token
@@ -99,14 +113,27 @@ router.post('/refresh', (req, res, next) => {
 })
 
 
-router.get('/test', (req, res) => {
+router.post('/test', (req, res) => {
     try {
         User.findAll().then((rows) => {
-            res.json(rows)
+            res.send(ec.encrypt(req.body.text))
         });
     } catch (err) {
         res.json(err);
     }
+})
+
+
+router.post('/encrypt', (req, res) => {
+    res.send(ec.encrypt(req.body.text))
+})
+
+router.post('/decrypt', (req, res) => {
+    res.send(ec.decrypt(req.body.text))
+})
+
+router.post('/hash', (req, res) => {
+    res.send(ec.hash(req.body.text))
 })
 
 
