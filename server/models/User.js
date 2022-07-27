@@ -5,7 +5,7 @@ const db = new Database();
 
 
 export class User extends Model {
-    nr = new Number();
+/*     nr = new Number();
     username = new String();
     passwordKey = new String();
     passwordKey1 = new String();
@@ -18,7 +18,7 @@ export class User extends Model {
     authKey = new String();
     defaultWorkspaceNr = new Number();
     LogoUserID = new Number();
-    loginLimit = new Number();
+    loginLimit = new Number(); */
 }
 
 User.init({
