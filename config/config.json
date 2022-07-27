@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "sa",
+    "password": "123456",
+    "database": "FSM2",
+    "host": "DESKTOP-885PHN8",
+    "dialect": "mssql"
+  },
+  "test": {
+    "username": "sa",
+    "password": "123456",
+    "database": "FSM2",
+    "host": "DESKTOP-885PHN8",
+    "dialect": "mssql"
+  },
+  "production": {
+    "username": "sa",
+    "password": "123456",
+    "database": "FSM2",
+    "host": "DESKTOP-885PHN8",
+    "dialect": "mssql"
+  }
+}
