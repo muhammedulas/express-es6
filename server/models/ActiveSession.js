@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import { Database } from '../server/shared_modules/db';
+import { Database } from '../shared_modules/db';
 
 const db = new Database();
 
@@ -20,16 +20,29 @@ ActiveSession.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    startedAt: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
     deviceRef: {
         type: DataTypes.INTEGER,
         allowNull: false
+    },
+    source: {
+        type: DataTypes.STRING(50),
+        allowNull: false
+    },
+    startedAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+    },
+    expiresAt: {
+        type: DataTypes.DATE,
+        allowNull: true
+    },
+    refreshToken: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
+
 }, {
     sequelize: db.FSMDB,
-    modelName: "User",
-    tableName: "Users"
+    modelName: "ActiveSession",
+    tableName: "ActiveSessions"
 })

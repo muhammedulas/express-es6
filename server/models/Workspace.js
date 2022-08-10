@@ -1,5 +1,6 @@
-import { Model, DataTypes } from "sequelize/types";
-import { Database } from "../server/shared_modules/db";
+import { DataTypes, Model } from 'sequelize';
+import { Database } from '../shared_modules/db';
+
 const db = new Database();
 
 export class Workspace extends Model { };

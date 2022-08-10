@@ -1,25 +1,28 @@
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 Accept: application/json
+Source: "mobile"
+device_id: DESKTOP-885PHN8
 
 {
     "username":"MULASS",
-    "password":"mu123456"
+    "password":"1234",
+    "workspace": 1
 }
 
 ###
 
 POST http://localhost:3000/auth/verify
 Content-Type: text/plain
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiIiwidXNlcklkIjoyLCJ1c2VyTnIiOjB9LCJ3b3Jrc3BhY2UiOjAsImlhdCI6MTY1ODkzMjg5OCwiZXhwIjoxNjU4OTMzNzk4fQ.yce_OCGpc1hqUKt6BCxI6mMuHdM0Sukkd_LPYKPVv9Y
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uIjp7ImlkIjoxMDExLCJ1c2VyIjp7ImlkIjoyLCJuciI6MSwidXNlcm5hbWUiOiJNVUxBU1MiLCJuYW1lIjoiTXVoYW1tZWQiLCJzdXJuYW1lIjoiVWxhxZ8iLCJpc0FkbWluIjoxLCJFUlBUb2tlbiI6ImFzZCIsIkxvZ29JZCI6MX0sIndvcmtzcGFjZSI6eyJpZCI6MSwibnIiOjEsInRpdGxlIjoiw4dhbMSxxZ9tYSBBbGFuxLEgMSIsImZpcm1OciI6MjIwLCJwZXJOciI6MX0sImRldmljZSI6eyJpZCI6NTgxLCJuciI6MiwiaWRlbnRpZmllciI6IkRFU0tUT1AtODg1UEhOOCIsImRlZmluaXRpb24iOm51bGx9LCJleHBpcmVzQXQiOjE2NTk4NDcwNTd9LCJpYXQiOjE2NTk4MDM4NTcsImV4cCI6MTY1OTgwNDc1N30.J1DiR-etpA2K6GyZ1Gdv-pExZhykxWZBYUmp3ZopB4U
 
 ###
 POST http://localhost:3000/auth/refresh
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im11aGFtbWVkIiwicGFzc3dvcmQiOiJtdTEyMzQ1NiIsImlhdCI6MTY1ODc4NDUzOCwiZXhwIjoxNjU4Nzg1NDM4fQ.KqJqfEv5QpQ9_u5zlB-UCTSHnPhaudNxy8dzfeNEkds
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiTVVMQVNTIiwidXNlcklkIjoyLCJ1c2VyTnIiOjF9LCJ3b3Jrc3BhY2UiOjEsImlhdCI6MTY1ODk5Mjg2MSwiZXhwIjoxNjU4OTkzNzYxfQ.S0YTLI9-9uB663SzcnLnTK2IO4JpRDG_IeoTrPP0Zl8
 
 {
-    "refreshToken":"eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im11aGFtbWVkIiwicGFzc3dvcmQiOiJtdTEyMzQ1NiIsImlhdCI6MTY1ODc4NDUzOCwiZXhwIjoxNjU4ODI3NzM4fQ.RXwHfeXIo7UrMOkDCg8TxGVSvUEbglfzRUu5lKxsGTFKWD5tUHZ9iT09Bz14MEMb"
+    "refreshToken":"eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiTVVMQVNTIiwidXNlcklkIjoyLCJ1c2VyTnIiOjF9LCJ3b3Jrc3BhY2UiOjEsImlhdCI6MTY1ODk5Mjg2MSwiZXhwIjoxNjU5MDM2MDYxfQ.QbW7Q0-c3eclfd_LdeII9r2eeYKYpX-0V3m_HH3uxMrDxPv7H0vG0NF3of6PmIWH"
 }
 
 
@@ -46,3 +49,16 @@ Content-Type: application/json
 {
     "text":"1234"
 }
+
+###
+POST http://localhost:3000/auth/test
+Content-Type: application/json
+device_id: DESKTOP-885PHN2
+
+{
+    "username": "MULASS"
+}
+
+
+###
+GET http://localhost:3000/auth/user/MULASS

@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import { Database } from '../server/shared_modules/db';
+import { Database } from '../shared_modules/db';
 
 const db = new Database();
 
